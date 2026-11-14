@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glint-transit"
+version = "0.1.0"
+description = "GPU light-curve transit searches with CuPy"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Quanquan Hu"}]
+dependencies = ["numpy>=1.24", "batman-package>=2.4", "setuptools>=68"]
+keywords = ["astronomy", "exoplanet", "transit", "GPU", "CUDA"]
+
+[project.optional-dependencies]
+# Select one CuPy distribution for the installed CUDA runtime.
+cuda12 = ["cupy-cuda12x>=13"]
+cuda13 = ["cupy-cuda13x>=14"]
+test = ["pytest>=7"]
+examples = ["matplotlib>=3.7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+glint = ["kernels.cu"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+markers = ["gpu: requires CuPy and a working NVIDIA CUDA device"]

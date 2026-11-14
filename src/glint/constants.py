@@ -1,0 +1,8 @@
+"""Physical constants in SI units unless stated otherwise."""
+
+SECONDS_PER_DAY = 86400.0
+GRAVITATIONAL_CONSTANT = 6.67430e-11
+SOLAR_MASS = 1.98847e30
+SOLAR_RADIUS = 6.957e8
+MAX_GRID_AXIS = 65535
+MAX_INT32 = 2**31 - 1
